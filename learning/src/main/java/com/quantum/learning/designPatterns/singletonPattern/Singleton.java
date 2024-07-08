@@ -1,4 +1,4 @@
-package com.quantum.learning.designPatterns;
+package com.quantum.learning.designPatterns.singletonPattern;
 
 public class Singleton {
 

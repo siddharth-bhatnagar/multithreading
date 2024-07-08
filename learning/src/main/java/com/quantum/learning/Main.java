@@ -1,5 +1,8 @@
 package com.quantum.learning;
 
+import com.quantum.learning.designPatterns.decoratorPattern.PizzaShop;
+import com.quantum.learning.designPatterns.factoryPattern.Factory;
+import com.quantum.learning.designPatterns.observerPattern.Store;
 import com.quantum.learning.threads.Stack;
 import com.quantum.learning.threads.Thread1;
 import com.quantum.learning.threads.Thread2;
@@ -7,7 +10,7 @@ import com.quantum.learning.threads.Thread2;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Thread.currentThread().getName() + " thread started");
+//        System.out.println(Thread.currentThread().getName() + " thread started");
 //        Thread thread1 = new Thread1("thread1");
 //        thread1.setDaemon(false);
 //        thread1.start();
@@ -71,11 +74,11 @@ public class Main {
 //            }
 //        }
 
-        Thread thread = new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
-                System.out.println("Thread: " + i);
-            }
-        }, "thread7");
+//        Thread thread = new Thread(() -> {
+//            for (int i = 0; i < 10; i++) {
+//                System.out.println("Thread: " + i);
+//            }
+//        }, "thread7");
 
 //        thread.start();
 //
@@ -88,38 +91,42 @@ public class Main {
 
         // Deadlock
 
-        String lock1 = "Siddharth";
-        String lock2 = "Bhatnagar";
+//        String lock1 = "Siddharth";
+//        String lock2 = "Bhatnagar";
+//
+//        Thread myThread1 = new Thread(() -> {
+//            synchronized (lock1) {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                synchronized (lock2) {
+//                    System.out.println("Thread: " + Thread.currentThread().getName());
+//                }
+//            }
+//        }, "thread8");
+//
+//        Thread myThread2 = new Thread(() -> {
+//            synchronized (lock2) {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                synchronized (lock1) {
+//                    System.out.println("Thread: " + Thread.currentThread().getName());
+//                }
+//            }
+//        }, "thread9");
+//
+//        myThread1.start();
+//        myThread2.start();
+//
+//        System.out.println(Thread.currentThread().getName() + " thread ended");
 
-        Thread myThread1 = new Thread(() -> {
-            synchronized (lock1) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                synchronized (lock2) {
-                    System.out.println("Thread: " + Thread.currentThread().getName());
-                }
-            }
-        }, "thread8");
-
-        Thread myThread2 = new Thread(() -> {
-            synchronized (lock2) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                synchronized (lock1) {
-                    System.out.println("Thread: " + Thread.currentThread().getName());
-                }
-            }
-        }, "thread9");
-
-        myThread1.start();
-        myThread2.start();
-
-        System.out.println(Thread.currentThread().getName() + " thread ended");
+//        Store.run();
+//        PizzaShop.run();
+        Factory.run();
     }
 }
